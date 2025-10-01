@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhino Detetive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Menu Inicial -->
+        <div id="telaMenu" class="tela-menu active">
+            <div class="menu-overlay">
+                <img src="capa.png" alt="Capa do Jogo" class="capa-imagem">
+                <div class="menu-buttons">
+                    <button id="btnJogar" class="btn-menu btn-jogar">🎮 Jogar</button>
+                    <button id="btnRecordes" class="btn-menu btn-recordes">🏆 Recordes</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Tela do Jogo -->
+        <div id="telaJogo" class="tela-jogo">
+            <div class="info-bar">
+                <div class="fase-info">
+                    <span id="faseAtual">Fase: 1/6</span>
+                </div>
+                <div class="objetos-info">
+                    <span id="objetosEncontrados">Objetos: 0/0</span>
+                </div>
+                <div class="tempo-info">
+                    <span id="tempoDecorrido">Tempo: 00:00</span>
+                </div>
+                <button id="voltarMenuJogo" class="btn-voltar-menu">← Menu</button>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="gameCanvas"></canvas>
+            </div>
+            
+            <div id="mensagemAcerto" class="mensagem-acerto"></div>
+        </div>
+
+
+
+        <!-- Tela de Ranking -->
+        <div id="telaRanking" class="tela-ranking">
+            <div class="ranking-container">
+                <h2>🏆 Ranking</h2>
+                <button id="voltarJogo" class="btn btn-secondary">Voltar ao Jogo</button>
+                <div id="listaRanking" class="lista-ranking">
+                    <p class="loading">Carregando ranking...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Vitória -->
+        <div id="modalVitoria" class="modal">
+            <div class="modal-content">
+                <h2>🎉 Parabéns, Detetive!</h2>
+                <p id="tempoFinal">Você completou todas as fases em: <strong>00:00</strong></p>
+                <div class="input-group">
+                    <label>Digite seu nome:</label>
+                    <input type="text" id="nomeJogador" placeholder="Seu nome" maxlength="20">
+                </div>
+                <button id="salvarRanking" class="btn btn-success">Salvar no Ranking</button>
+                <button id="jogarNovamente" class="btn btn-primary">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Scripts do Jogo -->
+    <script src="ranking.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
